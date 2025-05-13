@@ -130,19 +130,19 @@ class RecipeCard extends HTMLElement {
 		//           Remember to replace all the placeholders in the template with the data passed in.
 		//           i.e. imgSrc, titleLnk, etc
 		article.innerHTML = `
-		<img src="${data.imgSrc}" alt="${data.imgAlt}">
+		<img src="${data.imgSrc}" alt="${data.imgAlt || "Unknown image."}">
 		<p class="title">
-			<a href="${data.titleLnk}">${data.titleTxt}</a>
+			<a href="${data.titleLnk}">${data.titleTxt || "No title found."}</a>
 		</p>
-		<p class="organization">${data.organization}</p>
+		<p class="organization">${data.organization || "No organization found."}</p>
 		<div class="rating">
-			<span>${data.rating}</span>
-			<img src="/assets/images/icons/${data.rating}-star.svg" alt="${data.rating} stars">
-			<span>${data.numRatings}</span>
+			<span>${data.rating || 0}</span>
+			<img src="/assets/images/icons/${data.rating || 0}-star.svg" alt="${data.rating || 0} stars">
+			<span>${data.numRatings || 0}</span>
 		</div>
-		<time>${data.lengthTime}</time>
+		<time>${data.lengthTime || "No time to make this recipe found."}</time>
 		<p class="ingredients">
-			${data.ingredients}
+			${data.ingredients || "No ingredients found."}
 		</p>`;
 	}
 }
