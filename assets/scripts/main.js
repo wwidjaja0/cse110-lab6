@@ -75,11 +75,7 @@ function initFormHandler() {
 	const form = document.querySelector("form");
 	// B3. TODO - Add an event listener for the 'submit' event, which fires when the
 	//            submit button is clicked
-	form.addEventListener("submit", (event) => {
-		// Prevent the page from refreshing
-		event.preventDefault();
-
-		// Steps B4-B9 will occur inside the event listener from step B3
+	form.addEventListener("submit", () => {		// Steps B4-B9 will occur inside the event listener from step B3
 		// B4. TODO - Create a new FormData object from the <form> element reference above
 		const formData = new FormData(form);
 		// B5. TODO - Create an empty object (we'll refer to this object as recipeObject to
@@ -102,7 +98,7 @@ function initFormHandler() {
 		recipes.push(recipeObject);
 		saveRecipesToStorage(recipes);
 	});
-	
+
 	// B10. TODO - Get a reference to the "Clear Local Storage" button
 	const clearButton = document.querySelector(".danger");
 
